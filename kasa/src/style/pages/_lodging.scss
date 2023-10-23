@@ -1,0 +1,121 @@
+.lodging {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .lodging__details {
+        position: relative;
+        width: 100%;
+
+        .lodging__details__title {
+            max-width: 80%;
+            line-height: 25px;
+        }
+
+        .lodging__details__adress {
+
+            line-height: 20px;
+
+            margin-top: $small-gap;
+        }
+
+        .lodging__details__host {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 64px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .lodging__details__host__picture {
+                border-radius: 50%;
+                height: 64px;
+                margin-left: 10px;
+            }
+        }
+
+        .lodging__details__tags {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 70%;
+            margin-top: $small-gap;
+
+            li {
+                background-color: $color-2;
+                color: $color-1;
+                margin-right: $small-gap;
+                margin-top: $small-gap;
+                padding: 3px 30px 2px 30px;
+                border-radius: 10px;
+            }
+        }
+
+        .lodging__details__stars {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    .lodging__collapses {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+
+}
+
+@media screen and (max-width: map-get($breakpoints, tablet)) {
+    .lodging .lodging__details .lodging__details__title {
+        max-width: 73%;
+    }
+}
+
+@media screen and (max-width: map-get($breakpoints, mobile)) {
+    .lodging .lodging__details {
+        .lodging__details__title {
+            max-width: 100%;
+
+        }
+
+        .lodging__details__stars {
+            position: relative;
+            margin-top: 25px;
+
+            li {
+                img {
+                    width: 15px;
+                }
+            }
+        }
+
+        .lodging__details__tags {
+            max-width: 100%;
+        }
+
+        .lodging__details__host {
+            top: 90%;
+            height: 32px;
+            transform: translateY(-50%);
+            z-index: 3;
+
+            .lodging__details__host__picture {
+                height: 32px;
+            }
+        }
+    }
+
+    .lodging__collapses {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+    }
+}

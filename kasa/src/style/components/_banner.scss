@@ -1,0 +1,58 @@
+.banner__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    border-radius: 25px;
+    height: 223px;
+    max-width: 1240px;
+    margin-top: $medium-gap;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+
+    h2 {
+        color: $color-1;
+        z-index: 1;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .banner__filter {
+        position: absolute;
+        background: #000000;
+        mix-blend-mode: darken;
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.background {
+    background-image: url(./../../assets/banner.png);
+}
+
+.background2 {
+    background-color: #000000;
+}
+
+@media screen and (max-width: map-get($breakpoints, tablet)) {
+    .banner__container {
+        height: 200px;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: map-get($breakpoints, mobile)) {
+    .banner__container {
+        height: 111px;
+        border-radius: 10px;
+
+        h2 {
+            text-align: left;
+        }
+    }
+
+}

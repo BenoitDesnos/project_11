@@ -1,0 +1,58 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    width: 100%;
+    margin-top: $medium-gap;
+    margin-bottom: $small-gap;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            margin-left: 60px;
+            line-height: 34px;
+            color: $color-2;
+        }
+
+        .nav-active {
+            text-decoration: underline;
+        }
+
+        .hover:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (max-width: map-get($breakpoints, tablet)) {
+    header {
+        img {
+            width: 180px;
+        }
+
+        ul {
+            li {
+                margin-left: 35px;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: map-get($breakpoints, mobile)) {
+    header {
+        img {
+            width: 145px;
+        }
+
+        ul {
+            li {
+                margin-left: 10px;
+            }
+
+        }
+    }
+}

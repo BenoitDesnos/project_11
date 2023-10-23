@@ -1,0 +1,78 @@
+.carrousel {
+    position: relative;
+    width: 100%;
+    height: 415px;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: $medium-gap;
+
+    .picture__order {
+        position: absolute;
+        bottom: $medium-gap;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $color-1;
+    }
+
+    .pictures {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    #leftClick {
+        @include carrouselClicks;
+        left: $medium-gap;
+        transform: translateY(-50%);
+    }
+
+    #rightClick {
+        @include carrouselClicks;
+        right: $medium-gap;
+        transform: rotate(180deg) translateY(50%);
+
+    }
+}
+
+@media screen and (max-width: map-get($breakpoints, tablet)) {
+    .carrousel {
+        height: 300px;
+
+        #leftClick,
+        #rightClick {
+            width: 18px;
+        }
+
+        #rightClick {
+            right: 10px;
+        }
+
+        #leftClick {
+            left: 10px;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: map-get($breakpoints, mobile)) {
+    .carrousel {
+        height: 255px;
+
+        #leftClick,
+        #rightClick {
+            width: 12px;
+        }
+
+
+        #rightClick {
+            right: 5px;
+        }
+
+        #leftClick {
+            left: 5px;
+        }
+    }
+
+
+}

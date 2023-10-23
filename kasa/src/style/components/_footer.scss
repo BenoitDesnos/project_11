@@ -1,0 +1,17 @@
+footer {
+    width: 100%;
+    position: absolute;
+    min-height: 210px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+    img,
+    p {
+        color: $color-1;
+    }
+}
