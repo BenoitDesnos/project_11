@@ -13,32 +13,27 @@ import NotFound from "./NotFound";
 const Lodging = ({ lodgings }) => {
   const { id } = useParams();
   // --------------- useStates -----------------------------
-  const [picturesArray, setPicturesArray] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [equipments, setEquipments] = useState([]);
-  const [rating, setRating] = useState(0);
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [hostName, setHostName] = useState("");
-  const [hostPicture, setHostPicture] = useState("");
-  const [description, setDescription] = useState("");
+  const [lodging, setLodging] = useState({});
   const [isIdInUrl, setIsIdInUrl] = useState(false); // check if good id, if not display notfound page
   // ----------------- const -----------------------------
-  const splittedName = hostName.split(" ");
+  const {
+    tags,
+    equipments,
+    rating,
+    title,
+    location,
+    host,
+    description,
+    pictures,
+  } = lodging;
+  const splittedName = host?.name.split(" ");
   const rangeStars = [1, 2, 3, 4, 5];
   // ------------------ useEffects ------------------------
+
   useEffect(() => {
     for (let i = 0; i < lodgings.length; i++) {
       if (lodgings[i].id.includes(id)) {
-        setPicturesArray(lodgings[i].pictures);
-        setTags(lodgings[i].tags);
-        setEquipments(lodgings[i].equipments);
-        setRating(lodgings[i].rating);
-        setTitle(lodgings[i].title);
-        setLocation(lodgings[i].location);
-        setHostName(lodgings[i].host.name);
-        setHostPicture(lodgings[i].host.picture);
-        setDescription(lodgings[i].description);
+        setLodging(lodgings[i]);
         return setIsIdInUrl(true); // as soon as we find a match we leave the loop and set isIdInUrl to true.
       }
     }
@@ -55,7 +50,7 @@ const Lodging = ({ lodgings }) => {
       {isIdInUrl ? (
         <main className="lodging ">
           <Navigation />
-          <Carrousel picturesArray={picturesArray} />
+          <Carrousel picturesArray={pictures} />
           <div className="lodging__details max__width">
             <h1 className="lodging__details__title size2">{title}</h1>
             <p className="lodging__details__adress">{location}</p>
@@ -64,7 +59,7 @@ const Lodging = ({ lodgings }) => {
                 {splittedName[0]} <br /> {splittedName[1]}
               </p>
               <img
-                src={hostPicture}
+                src={host.picture}
                 alt="host photo"
                 className="lodging__details__host__picture"
               ></img>
