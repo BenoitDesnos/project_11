@@ -19,9 +19,6 @@ const Lodging = ({ lodgings }) => {
     }
   }
 
-  // --------------- useStates -----------------------------
-
-  // ----------------- const -----------------------------
   const {
     tags,
     equipments,
@@ -32,10 +29,9 @@ const Lodging = ({ lodgings }) => {
     description,
     pictures,
   } = lodging;
+
   const splittedName = host?.name.split(" ");
   const rangeStars = [1, 2, 3, 4, 5];
-  // ------------------ useEffects ------------------------
-  ("TODO faire un useContext de lodging pour eviter  de loop plusieurs fois");
 
   // create array of elements needed in Collapses maping
   function collapseContentArray() {
