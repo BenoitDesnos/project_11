@@ -1,11 +1,16 @@
 // used in Home.js
 
-function Banner({ backgroundClass }) {
+import { isMobile } from "../utils/globalsVariables";
+
+function Banner({ backgroundClass, title }) {
   return (
     <div className={`banner__container ${backgroundClass} max__width`}>
-      <h2 className="size1">
-        Chez vous,{window.innerWidth < 576 && <br />} partout et ailleurs
-      </h2>
+      {title && (
+        <h2 className="size1">
+          Chez vous,{isMobile && <br />} partout et ailleurs
+        </h2>
+      )}
+
       <div className="banner__filter"></div>
     </div>
   );

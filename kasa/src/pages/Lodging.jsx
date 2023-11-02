@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Carrousel from "../components/Carrousel";
 import starFull from "../assets/VectorStarFull.svg";
@@ -12,9 +11,16 @@ import NotFound from "./NotFound";
 // props from App.js
 const Lodging = ({ lodgings }) => {
   const { id } = useParams();
+  let lodging = {};
+  if (id !== undefined) {
+    lodging = lodgings.find((lodging) => lodging.id === id);
+    if (lodging === false || lodging === undefined) {
+      return <Navigate to="/404" />;
+    }
+  }
+
   // --------------- useStates -----------------------------
-  const [lodging, setLodging] = useState({});
-  const [isIdInUrl, setIsIdInUrl] = useState(false); // check if good id, if not display notfound page
+
   // ----------------- const -----------------------------
   const {
     tags,
@@ -29,15 +35,8 @@ const Lodging = ({ lodgings }) => {
   const splittedName = host?.name.split(" ");
   const rangeStars = [1, 2, 3, 4, 5];
   // ------------------ useEffects ------------------------
+  ("TODO faire un useContext de lodging pour eviter  de loop plusieurs fois");
 
-  useEffect(() => {
-    for (let i = 0; i < lodgings.length; i++) {
-      if (lodgings[i].id.includes(id)) {
-        setLodging(lodgings[i]);
-        return setIsIdInUrl(true); // as soon as we find a match we leave the loop and set isIdInUrl to true.
-      }
-    }
-  }, []);
   // create array of elements needed in Collapses maping
   function collapseContentArray() {
     let collapseArray = [description];
@@ -47,7 +46,7 @@ const Lodging = ({ lodgings }) => {
 
   return (
     <>
-      {isIdInUrl ? (
+      {id ? (
         <main className="lodging ">
           <Navigation />
           <Carrousel picturesArray={pictures} />

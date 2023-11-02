@@ -2,15 +2,19 @@
 
 import { useState } from "react";
 import arrow from "../assets/Vector gauche.svg";
+import { isMobile } from "../utils/globalsVariables";
 
 function Carrousel({ picturesArray }) {
   const [clickCount, setClickCount] = useState(0);
   // if more than one pciture return carrousell
   return picturesArray.length > 1 ? (
     <div className="carrousel max__width">
-      <span className="picture__order">
-        {clickCount + 1 + "/" + picturesArray.length}
-      </span>
+      {!isMobile && (
+        <span className="picture__order">
+          {clickCount + 1 + "/" + picturesArray.length}
+        </span>
+      )}
+
       <img
         src={arrow}
         alt="clic gauche"
