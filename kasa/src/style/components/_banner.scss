@@ -30,11 +30,11 @@
 }
 
 .background {
-    background-image: url(./assets/images/bannerHome.png);
+    background-image: url(http://localhost:5173/assets/images/bannerHome.png);
 }
 
 .background2 {
-    background-image: url(./assets/images/bannerAbout.png);
+    background-image: url(http://localhost:5173/assets/images/bannerAbout.png);
 }
 
 @media screen and (max-width: map-get($breakpoints, tablet)) {

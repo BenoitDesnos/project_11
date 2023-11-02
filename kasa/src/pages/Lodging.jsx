@@ -11,7 +11,7 @@ import NotFound from "./NotFound";
 // props from App.js
 const Lodging = ({ lodgings }) => {
   const { id } = useParams();
-  let lodging = {};
+  let lodging;
   if (id !== undefined) {
     lodging = lodgings.find((lodging) => lodging.id === id);
     if (lodging === false || lodging === undefined) {
