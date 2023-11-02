@@ -1,5 +1,3 @@
-// used in Home.js
-
 import { isMobile } from "../utils/globalsVariables";
 
 function Banner({ backgroundClass, title }) {

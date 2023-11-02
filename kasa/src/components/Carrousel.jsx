@@ -1,5 +1,3 @@
-// used in Lodging.js
-
 import { useState } from "react";
 import arrow from "../assets/Vector gauche.svg";
 import { isMobile } from "../utils/globalsVariables";

@@ -1,5 +1,3 @@
-// used in Lodging.js, About.js
-
 import collapseArrow from "../assets/VectorCollapseArrow.svg";
 import { useState } from "react";
 
