@@ -1,8 +1,10 @@
 // used Home.js
 
 import { Link } from "react-router-dom";
+import { useLodgings } from "../context/LodgingsContext";
 
-function Gallery({ lodgings }) {
+function Gallery() {
+  const { lodgings } = useLodgings();
   return (
     <ul className="thumbs__container max__width ">
       {lodgings.map((lodging) => (

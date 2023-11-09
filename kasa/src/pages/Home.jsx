@@ -4,7 +4,7 @@ import Gallery from "../components/Gallery";
 import Navigation from "../components/Navigation";
 import { isMobile } from "../utils/globalsVariables";
 
-const Home = ({ lodgings }) => {
+const Home = () => {
   return (
     <>
       <main className="home">
@@ -13,7 +13,7 @@ const Home = ({ lodgings }) => {
           backgroundClass={"background"}
           title={`Chez vous, ${isMobile && <br />} partout et ailleurs`}
         />
-        <Gallery lodgings={lodgings} />
+        <Gallery />
         <Footer />
       </main>
     </>

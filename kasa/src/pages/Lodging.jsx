@@ -6,9 +6,11 @@ import starFull from "../assets/VectorStarFull.svg";
 import starEmpty from "../assets/VectorStarEmpty.svg";
 import Collapse from "../components/Collapse";
 import Footer from "../components/Footer";
+import { useLodgings } from "../context/LodgingsContext";
 
 // props from App.js
-const Lodging = ({ lodgings }) => {
+const Lodging = () => {
+  const { lodgings } = useLodgings();
   const { id } = useParams();
   if (id !== undefined) {
     var lodging = lodgings.find((lodging) => lodging.id === id);
@@ -34,11 +36,7 @@ const Lodging = ({ lodgings }) => {
   const rangeStars = [1, 2, 3, 4, 5];
 
   // create array of elements needed in Collapses maping
-  function collapseContentArray() {
-    let collapseArray = [description];
-    collapseArray.push(equipments);
-    return collapseArray;
-  }
+  const collapseContentArray = [description, equipments];
 
   return (
     <>
@@ -78,7 +76,7 @@ const Lodging = ({ lodgings }) => {
           </ul>
         </div>
         <div className="lodging__collapses max__width">
-          {collapseContentArray().map((element, index) => (
+          {collapseContentArray.map((element, index) => (
             <Collapse
               key={element + index}
               header={
