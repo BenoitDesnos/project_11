@@ -10,12 +10,13 @@ import Footer from "../components/Footer";
 // props from App.js
 const Lodging = ({ lodgings }) => {
   const { id } = useParams();
-  let lodging;
   if (id !== undefined) {
-    lodging = lodgings.find((lodging) => lodging.id === id);
+    var lodging = lodgings.find((lodging) => lodging.id === id);
     if (lodging === false || lodging === undefined) {
       return <Navigate to="/404" />;
     }
+  } else {
+    return <Navigate to="/404" />;
   }
 
   const {
